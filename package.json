@@ -1,0 +1,23 @@
+{
+  "name": "dropdate",
+  "version": "1.0.0",
+  "description": "A Calendar App for monitoring drop dates",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samuelsogbesan/Dropdate.git"
+  },
+  "author": "Samuel Sogbesan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samuelsogbesan/Dropdate/issues"
+  },
+  "homepage": "https://github.com/samuelsogbesan/Dropdate#readme",
+  "dependencies": {
+    "googleapis": "^39.2.0"
+  }
+}
