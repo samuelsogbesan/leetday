@@ -6,19 +6,6 @@ const schedule = require('node-schedule');
 const query = require('./queryDatabase');
 
 /**
- * Calculates the current day of the year
- * @returns the current day of the year
- */
-const getDayOfYear = () => {
-  var now = new Date();
-  var start = new Date(now.getFullYear(), 0, 0);
-  var diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000);
-  const oneDay = 1000 * 60 * 60 * 24;
-  var day = Math.floor(diff / oneDay);
-  return day;
-}
-
-/**
  * Adds an event to calendar.
  * @param {*} event the event to add to the calendar.
  * @throws if the object is malformed or the operation fails.
