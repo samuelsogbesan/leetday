@@ -1,6 +1,5 @@
 const Event = require('./Event');
 const calendar = require('./calendar-auth');
-const colours = require('./colours.json');
 const populateDatabase = require('./populateDatabase');
 const schedule = require('node-schedule');
 const query = require('./queryDatabase');
