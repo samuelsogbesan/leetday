@@ -54,7 +54,7 @@ const addEventToCalendar = (event) =>
   .then(res => true)
   .catch(err => {
     console.log(err);
-    return false
+    return false;
   });
 
 /**
@@ -101,7 +101,8 @@ const Job = async () => {
 
 // Run Job at 00:00 everyday.
 const LAUNCH_AT = {
-  hour: 15,
-  minute: 39,
+  hour: 0,
+  minute: 0,
 }
+
 schedule.scheduleJob(LAUNCH_AT, Job);
