@@ -65,7 +65,7 @@ const addEventToCalendar = (event) =>
 const addEventsToCalendar = async (events) => {
   try {
     Object.keys(events).forEach(async (problem) => {
-      const event = createEvent(problem, 'EASY');
+      const event = Event({stub: problem, eventDifficulty: 'EASY'});
       await addEventToCalendar(event)
         .then(_ => query.markSeen(problem))
         .catch(err => console.log(err));
