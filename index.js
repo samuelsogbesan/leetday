@@ -19,29 +19,6 @@ const getDayOfYear = () => {
 }
 
 /**
- * Creates an Event Object.
- * @param stub the problem stub.
- * @param eventDifficulty. the difficulty of the problem.
- * @returns the event object.
- */
-const createEvent = (stub, eventDifficulty) => {
-  const event = Event();
-  // Grab Date in yyyy-mm-dd format
-  const allDay = new Date().toJSON().split('T')[0];
-
-  event.start.date = allDay;
-  event.end.date = allDay;
-
-  event.summary = event.summary.replace('I_DIFFICULTY', eventDifficulty);
-  event.description = event.description.replace('I_STUB', stub);
-  event.source.url = event.source.url.replace('I_STUB', stub);
-  event.summary = event.summary.replace('I_DAY', getDayOfYear());
-  event.colorId = colours[eventDifficulty];
-
-  return event;
-}
-
-/**
  * Adds an event to calendar.
  * @param {*} event the event to add to the calendar.
  * @throws if the object is malformed or the operation fails.
