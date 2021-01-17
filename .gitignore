@@ -105,6 +105,7 @@ dist
 
 # Calendar Credentials
 credentials.json
+calendar-config.json
 
 #Firebase Credentials
 config.json
