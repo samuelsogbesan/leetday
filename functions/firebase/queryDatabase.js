@@ -16,7 +16,7 @@ const queryFreshProblems = (quantity) =>
  * @param {*} problemStub the stub of the seen problem.
  */
 const markSeen = (problemStub) =>
-  database.ref(`/problems/${problemStub}`).set(0);
+  database.ref(`/problems/${problemStub}`).set(true);
 
 /**
  * Returns the number of problems in the database.
