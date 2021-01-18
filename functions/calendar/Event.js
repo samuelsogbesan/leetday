@@ -1,4 +1,4 @@
-const colours = require('./colours.json');
+const colours = require('../util/colours.json');
 
 /**
  * Calculates the current day of the year

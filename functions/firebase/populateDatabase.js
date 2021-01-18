@@ -20,6 +20,7 @@ const populateDatabase = async () => {
 
   problems.forEach(async (problem) => {
     const query = `${ROOT}/${problem.stat.question__title_slug}`;
+
     try {
       const recordExists = await database.ref(query)
         .get()
