@@ -7,7 +7,7 @@ const { database } = require("./firebase-auth");
  * @return At most "quantity" number of unseen problems. May return some seen problems if there are less than "quantity" unseen problems left.
  */
 const queryFreshProblems = (quantity) =>
-  database.ref("/problems").orderByValue().limitToFirst(quantity).get()
+  database.ref("/problems").orderByValue().startAt(1).limitToFirst(quantity).get()
   .then(res => res.toJSON())
   .catch(err => console.log(err));
 
