@@ -1,4 +1,5 @@
 const colours = require('../util/colours.json');
+const difficultyFromLevel = require('../util/difficultyConverter');
 
 /**
  * Calculates the current day of the year
@@ -21,8 +22,10 @@ const getDayOfYear = () => {
 const Event = ({stub, eventDifficulty}) => {
   const dayOfYear = getDayOfYear();
   const allDay = new Date().toJSON().split('T')[0];
+  const difficultyAsString = difficultyFromLevel(eventDifficulty);
+
   return ({
-    'summary': `LeetDay ${dayOfYear} 🌟 ${eventDifficulty} Train your Skills Daily!🚦`,
+    'summary': `📟 LeetDay ${dayOfYear} ⚙️ ${difficultyAsString} 🌄 Rise and Code!`,
     'location': 'Online',
     'description': `Every day is a #LeetDay! \nhttps://www.leetcode.com/problems/${stub}`,
     'start': {
