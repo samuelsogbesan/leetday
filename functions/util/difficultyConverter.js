@@ -6,13 +6,13 @@ const difficultyFromLevel = (level) => {
   const output = '';
   switch (level) {
     case 1:
-      output = 'EASY';
+      output = 'Easy';
       break;
     case 2:
-      output = 'MEDIUM';
+      output = 'Medium';
       break;
     case 3:
-      output = 'HARD';
+      output = 'Hard';
       break;
     default:
       return new Error('Paramater "level" out of range (1-3)');
