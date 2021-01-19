@@ -54,4 +54,17 @@ const addEventsToCalendar = async (events) => {
   return true;
 }
 
-module.exports = {calendar, addEventToCalendar, addEventsToCalendar};
+const deleteEvent = (calendarId, eventId) =>
+  calendar.events.delete({calendarId, eventId})
+    .catch(err => console.log(err));
+
+const clearCalendar = (calendarId) =>
+  calendar.events.list({calendarId})
+    .then(data => data.data.items)
+    .then(events => events.forEach(event => {
+      setTimeout(() => deleteEvent(calendarId, event.id), 4000);
+      console.log('deleted '+event.id);
+    }))
+    .catch(err => console.log(err));
+
+module.exports = {calendar, addEventToCalendar, addEventsToCalendar, clearCalendar, deleteEvent};
