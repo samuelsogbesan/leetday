@@ -1,6 +1,6 @@
 const { google } = require('googleapis');
 const { OAuth2 } = google.auth;
-const {client_id, client_secret, refresh_token} = require('../credentials/calendar-config.json');
+const {client_id, client_secret, refresh_token, calendar_id} = require('../credentials/calendar-config.json');
 const query = require('../firebase/queryDatabase');
 const Event = require('./Event');
 
@@ -25,7 +25,7 @@ const calendar = google.calendar({
  */
 const addEventToCalendar = (event) =>
   calendar.events.insert({
-    calendarId: '9hbbf9sjnqls0mfhep9ded5pd4@group.calendar.google.com',
+    calendarId: calendar_id,
     resource: event,
   })
   .then(res => true)
