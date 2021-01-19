@@ -22,6 +22,8 @@ If you want to play around with the project locally, you will need the following
    - Your **client_id**, **client_secret** and **access token** and **calendar_id** all in a file called <code>calendar-config.json</code>
 
 ### Running the App
+*To use the calendar, __there is no need to run the app__. Just [join the calendar](https://calendar.google.com/calendar/u/0?cid=OWhiYmY5c2pucWxzMG1maGVwOWRlZDVwZDRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)*.
+*This information is useful if you would to fork the app for your own purposes.*
 - Install firebase tools with <code>npm install -g firebase-tools</code>
 - Use <code>firebase emulators:start</code> to trigger the firebase function locally, or <code>firebase deploy --only functions</code> to deploy to the cloud under your Firebase project.
 
