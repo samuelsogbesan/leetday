@@ -10,7 +10,8 @@ const query = require("./firebase/queryDatabase");
  * @todo if i have a solution to this problem, i should add it to the database (could do an automatic integration as a firebase function)
  * so that it can be added to the bio potentially
  */
-exports.Job = functions.pubsub.schedule('every 5 minutes').onRun(async () => {
+
+exports.Job = functions.pubsub.schedule('0 0 * * *').onRun(async () => {
   try {
     // Contacts LeetCodes API to update database. Makes external API call, should be used once a day
     await populateDatabase();
