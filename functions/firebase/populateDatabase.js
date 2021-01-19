@@ -20,13 +20,14 @@ const populateDatabase = async () => {
 
   problems.forEach(async (problem) => {
     const query = `${ROOT}/${problem.stat.question__title_slug}`;
+    const difficulty = problem.difficulty.level;
 
     try {
       const recordExists = await database.ref(query)
         .get()
         .then(res => res.exists());
 
-      if (!recordExists) await database.ref(query).set(false);
+      if (!recordExists) await database.ref(query).set(difficulty);
       return true;
     } catch (err) {
       console.log(err);

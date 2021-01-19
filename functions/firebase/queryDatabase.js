@@ -5,9 +5,10 @@ const { database } = require("./firebase-auth");
  * A problem is "unseen" if it has not been used in the calendar already.
  * @param quantity the number of problems to return.
  * @return At most "quantity" number of unseen problems. May return some seen problems if there are less than "quantity" unseen problems left.
+ * @todo update query to grab random questions between quantity and length of database.
  */
 const queryFreshProblems = (quantity) =>
-  database.ref("/problems").orderByValue().limitToFirst(quantity).get()
+  database.ref("/problems").orderByValue().startAt(1).limitToFirst(quantity).get()
   .then(res => res.toJSON())
   .catch(err => console.log(err));
 
@@ -16,7 +17,7 @@ const queryFreshProblems = (quantity) =>
  * @param {*} problemStub the stub of the seen problem.
  */
 const markSeen = (problemStub) =>
-  database.ref(`/problems/${problemStub}`).set(true);
+  database.ref(`/problems/${problemStub}`).set(0);
 
 /**
  * Returns the number of problems in the database.
