@@ -27,7 +27,7 @@ const Event = ({stub, eventDifficulty}) => {
   return ({
     'summary': `📟 LeetDay ${dayOfYear} ⚙️ ${difficultyAsString} 🌄 Rise and Code!`,
     'location': 'Online',
-    'description': `Every day is a #LeetDay! \nhttps://www.leetcode.com/problems/${stub}`,
+    'description': `Today's Challenge: ${stub}!\nhttps://www.leetcode.com/problems/${stub}\nEvery day is a #LeetDay!`,
     'start': {
       'date': allDay,
       'timeZone': 'Europe/London',
