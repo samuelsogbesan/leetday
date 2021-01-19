@@ -1,4 +1,4 @@
-#LeetDay Calendar
+# LeetDay Calendar
 A calendar that assigns you new, random LeetCode questions everyday!
 
 <a align="center" href="https://calendar.google.com/calendar/u/0?cid=OWhiYmY5c2pucWxzMG1maGVwOWRlZDVwZDRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">click me to join the calendar!</a>
