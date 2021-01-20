@@ -25,6 +25,7 @@ const Event = ({stub, eventDifficulty}) => {
   const difficultyAsString = difficultyFromLevel(eventDifficulty);
 
   return ({
+    'stub': stub,
     'summary': `📟 LeetDay ${dayOfYear} ⚙️ ${difficultyAsString} 🌄 Rise and Code!`,
     'location': 'Online',
     'description': `Today's Challenge: ${stub}!\nhttps://www.leetcode.com/problems/${stub}\nEvery day is a #LeetDay!`,
