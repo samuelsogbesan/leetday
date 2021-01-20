@@ -36,35 +36,46 @@ const addEventToCalendar = (event) =>
 
 /**
  * Adds several events to LeetCode Calendar.
- * TODO: replace easy with problem difficulty.
- * @param the events to be added.
+ * @param events an array of events to be added.
  */
 const addEventsToCalendar = async (events) => {
-  try {
-    Object.keys(events).forEach(async (problem) => {
-      const event = Event({stub: problem, eventDifficulty: events[problem]});
-      await addEventToCalendar(event)
-        .then(_ => query.markSeen(problem))
-        .catch(err => console.log(err));
-    });
-  } catch (err) {
-    console.log(err);
-  }
-
-  return true;
+  events.forEach(async event => {
+    addEventToCalendar(event)
+      .then(_ => query.markSeen(event.stub))
+      .catch(err => console.log(err));
+  });
 }
 
 const deleteEvent = (calendarId, eventId) =>
   calendar.events.delete({calendarId, eventId})
     .catch(err => console.log(err));
 
+/**
+ * Clear the specified calendar.
+ * @param {*} calendarId calendar to be cleared
+ * @throws a TypeError at the end of the loop. I am unsure why this happens!
+ */
 const clearCalendar = (calendarId) =>
   calendar.events.list({calendarId})
     .then(data => data.data.items)
-    .then(events => events.forEach(event => {
-      setTimeout(() => deleteEvent(calendarId, event.id), 4000);
-      console.log('deleted '+event.id);
-    }))
+    .then(events => {
+      console.log(`Deleting ${events.length} events.`);
+      var currentEvent = 0;
+
+      const interval = setInterval(async function() {
+        if (currentEvent >= events.length) {
+          clearInterval(interval);
+          return;
+        }
+        console.log(`Deleting ${events[currentEvent].id}`);
+        try {
+          await deleteEvent(calendarId, events[currentEvent++].id);
+          console.log(`deleted ${events[currentEvent].id}`);
+        } catch (err) {
+          console.log(err);
+        }
+      }, 2000);
+    })
     .catch(err => console.log(err));
 
 module.exports = {calendar, addEventToCalendar, addEventsToCalendar, clearCalendar, deleteEvent};
