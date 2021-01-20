@@ -21,7 +21,5 @@ exports.Job = functions.pubsub.schedule('0 0 * * *').onRun(async () => {
     await addEventsToCalendar(events);
   } catch (err) {
     console.log(err);
-  } finally {
-    console.log('JOB COMPLETE');
   }
 });
