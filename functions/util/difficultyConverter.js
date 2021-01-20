@@ -3,7 +3,7 @@
  * @param {*} level a value between 1 ('EASY') and 3 ('HARD') that represents the problem difficulty.
  */
 const difficultyFromLevel = (level) => {
-  const output = '';
+  var output = '';
   switch (level) {
     case 1:
       output = 'Easy';
