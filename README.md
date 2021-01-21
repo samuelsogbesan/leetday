@@ -29,6 +29,8 @@ If you want to play around with the project locally, you will need the following
 
 ## Contributing
 [Samuel Sogbesan](https://www.linkedin.com/in/samuel-sogbesan/)
+
+Contributions are very welcome! If you want to contribute, open a PR and I will happily review it.
 ## License
 Apache 2.0
 
