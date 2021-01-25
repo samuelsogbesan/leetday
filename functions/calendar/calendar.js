@@ -39,11 +39,18 @@ const addEventToCalendar = (event) =>
  * @param events an array of events to be added.
  */
 const addEventsToCalendar = async (events) => {
-  events.forEach(async event => {
-    addEventToCalendar(event)
+  var currentEvent = 0;
+  const interval = setInterval(async function(){
+    if (currentEvent >= events.length) {
+      clearInterval(interval);
+    } else {
+      var event = events[currentEvent];
+      await addEventToCalendar(event)
       .then(_ => query.markSeen(event.stub))
+      .finally(_ => currentEvent++)
       .catch(err => console.log(err));
-  });
+    }
+  }, 4000);
 }
 
 const deleteEvent = (calendarId, eventId) =>
