@@ -44,10 +44,9 @@ const addEventsToCalendar = async (events) => {
     if (currentEvent >= events.length) {
       clearInterval(interval);
     } else {
-      var event = events[currentEvent];
+      var event = events[currentEvent++];
       await addEventToCalendar(event)
       .then(_ => query.markSeen(event.stub))
-      .finally(_ => currentEvent++)
       .catch(err => console.log(err));
     }
   }, 4000);
